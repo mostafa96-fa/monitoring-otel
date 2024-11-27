@@ -15,7 +15,7 @@ resource = Resource(attributes={
     SERVICE_NAME: "web-app"
 })
 provider = TracerProvider(resource=resource)
-processor = BatchSpanProcessor(OTLPSpanExporter(ConsoleSpanExporter()))
+processor = BatchSpanProcessor(ConsoleSpanExporter())
 provider.add_span_processor(processor)
 
 # Sets the global default tracer provider

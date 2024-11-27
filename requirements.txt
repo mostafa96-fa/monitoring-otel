@@ -1,1 +1,5 @@
 flask
+opentelemetry-distro
+opentelemetry-sdk
+opentelemetry-api
+opentelemetry-exporter-otlp

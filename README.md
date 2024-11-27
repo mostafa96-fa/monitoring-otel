@@ -4,7 +4,7 @@ This project demonstrates how to set up and monitor a Flask web application usin
 
 # Prerequisites
 
-Before you begin, ensure that you have the following software installed:
+Before you begin, ensure that you have the following tools installed:
 
 1. Python 3  
 2. Docker

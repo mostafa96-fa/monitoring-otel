@@ -31,6 +31,7 @@ app = Flask(__name__)
 @app.route('/')
 @tracer.start_as_current_span("healthy_server")
 def hello_geek():
+    healthy()
     return "<h1>Hello World!</h1>", 200
 
 
@@ -39,6 +40,12 @@ def hello_geek():
 def stimulate_502():
     return "<h1>Bad Gateway</h1>", 502
 
+
+@tracer.start_as_current_span("loop_fct")
+def healthy():
+    for i in [0,5]:
+        print(i)
+    
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8000)

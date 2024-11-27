@@ -4,6 +4,8 @@ services:
     build: .
     ports:
       - "8000:8000"
+    environment:
+      - TRACES_ENDPOINT=http://otel-collector:4317
 
   otel-collector:
     image: otel/opentelemetry-collector-contrib:latest
@@ -13,3 +15,9 @@ services:
     ports:
       - "4317:4317" # OTLP gRPC receiver
       - "4318:4318"
+  jaeger:
+    image: jaegertracing/all-in-one:latest
+    ports:
+      - "6831:6831/udp" # UDP port for Jaeger agent
+      - "16686:16686" # Web UI
+      - "14268:14268" # HTTP port for spans
